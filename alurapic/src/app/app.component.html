@@ -1,2 +1,5 @@
-<ap-photo url="https://www.estudokids.com.br/wp-content/uploads/2019/06/tigres.jpg" description=""></ap-photo>
-<ap-photo url="https://www.rd.com/wp-content/uploads/2018/03/shutterstock_417265939.jpg" description=""></ap-photo>
+<ap-photo
+  *ngFor="let photo of photos"
+  [url]="photo.url"
+  [description]="photo.description" >
+</ap-photo>
