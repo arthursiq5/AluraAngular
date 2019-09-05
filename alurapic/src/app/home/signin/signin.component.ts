@@ -1,7 +1,8 @@
 import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { AuthService } from "../../core/auth.service";
+import { AuthService } from "../../core/auth/auth.service";
+
 
 @Component({
   templateUrl: './signin.component.html'
