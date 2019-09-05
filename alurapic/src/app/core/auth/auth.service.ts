@@ -14,6 +14,6 @@ export class AuthService {
     return this.http.post(
       API_URL + "/user/login",
       { userName, password }
-    )
+    );
   }
 }

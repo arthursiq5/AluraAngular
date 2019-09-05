@@ -15,9 +15,18 @@ const routes:Routes = [
       photos: PhotoListResolver
     }
   },
-  { path:'', component:SignInComponent },
-  { path:'p/add', component:PhotoFormComponent },
-  { path:'**', component:NotFoundComponent },
+  {
+    path:'',
+    component:SignInComponent
+  },
+  {
+    path:'p/add',
+    component:PhotoFormComponent
+  },
+  {
+    path:'**',
+    component:NotFoundComponent
+  },
 ];
 
 @NgModule({

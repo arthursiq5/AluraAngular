@@ -26,12 +26,12 @@ export class SignInComponent implements OnInit{
   }
 
   login(){
-    console.log("vai se autenticar")
     const userName = this.loginForm.get('userName').value;
     const password = this.loginForm.get('password').value;
     this.authService
         .authenticate(userName, password)
-        .subscribe(() => this.router.navigate(['user', userName]),
+        .subscribe(
+          () => this.router.navigate(['user', userName]),
           err => {
             console.log(err);
             alert('Invalid username or password');
