@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { AuthService } from "../../core/auth/auth.service";
+import { PlatformDetectorService } from "../../core/platform-detector/platform-detector.service";
 
 
 @Component({
@@ -15,7 +16,8 @@ export class SignInComponent implements OnInit{
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router:Router
+    private router:Router,
+    private platformDetectorService: PlatformDetectorService
   ){ }
 
   ngOnInit():void{
@@ -35,7 +37,8 @@ export class SignInComponent implements OnInit{
           err => {
             console.log(err);
             alert('Invalid username or password');
-            this.userNameInput.nativeElement.focus();
+            this.platformDetectorService.isPlatformBrowser() &&
+              this.userNameInput.nativeElement.focus();
             this.loginForm.reset();
           }
         );
