@@ -19,7 +19,7 @@ export class TokenService{
     return window.localStorage.getItem(KEY);
   }
 
-  removeToken(){
+  removeToken():void{
     window.localStorage.removeItem(KEY);
   }
 }
