@@ -19,7 +19,12 @@ const routes:Routes = [
     }
   },
   {
-    path:'',
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'home'
+  },
+  {
+    path:'home',
     component:HomeComponent,
     canActivate: [AuthGuard],
     children: [
