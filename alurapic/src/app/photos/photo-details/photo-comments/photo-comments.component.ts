@@ -30,8 +30,10 @@ export class PhotoCommentsComponent implements OnInit{
 
   save(): void{
     const comment: string = this.commentForm.get('comment').value as string;
-    if(!comment.trim())
+
+    if(!comment.trim()) // impede a inserção de comentários vazios
       return;
+
     this.comments$ = this.photoService
         .addComment(this.photoId, comment)
         .pipe(switchMap(() =>
