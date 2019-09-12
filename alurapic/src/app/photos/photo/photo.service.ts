@@ -50,5 +50,5 @@ export class PhotoService{
 
   removePhoto(photoId: number):Observable<Object>{
     return this.http.delete(API + '/photos/' + photoId)
-  }
+  } 
 }
