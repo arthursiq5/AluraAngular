@@ -47,4 +47,17 @@ export class PhotoDetailsComponent implements OnInit{
           }
         );
   }
+
+  like(photo: Photo){
+    this.photoService
+        .like(photo.id)
+        .subscribe(liked => {
+          if(liked){
+            this.alertService.success("Photo liked");
+            this.photo$ = this.photoService.findById(photo.id);
+          }else{
+            this.alertService.warning("Error while trying to like photo");
+          }
+        })
+  }
 }
