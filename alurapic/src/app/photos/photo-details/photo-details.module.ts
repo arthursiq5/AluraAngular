@@ -9,6 +9,7 @@ import { PhotoCommentsComponent } from "./photo-comments/photo-comments.componen
 import { VMessageModule } from "../../shared/components/vmessage/vmessage.module";
 import { PhotoOwnerOnlyDirective } from "./photo-owner-only/photo-owner-only.directive";
 import { ShowIfLoggedModule } from "../../shared/directives/show-if-logged/show-if-logged.module";
+import { AlertModule } from "../../shared/components/alert/alert.module";
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ShowIfLoggedModule } from "../../shared/directives/show-if-logged/show-
     FormsModule,
     ReactiveFormsModule,
     VMessageModule,
-    ShowIfLoggedModule
+    ShowIfLoggedModule,
+    AlertModule
   ]
 })
 export class PhotoDetailsModule{ }

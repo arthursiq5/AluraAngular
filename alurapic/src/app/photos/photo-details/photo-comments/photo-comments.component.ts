@@ -4,6 +4,7 @@ import { switchMap, tap } from 'rxjs/operators'
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { PhotoComment } from "../../photo/photo-comment";
 import { PhotoService } from "../../photo/photo.service";
+import { AlertService } from "../../../shared/components/alert/alert.service";
 
 @Component({
   selector: 'ap-photo-comments',
@@ -19,7 +20,8 @@ export class PhotoCommentsComponent implements OnInit{
 
   constructor(
     private photoService: PhotoService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private alertService: AlertService
   ){}
 
   ngOnInit(): void {
@@ -42,7 +44,7 @@ export class PhotoCommentsComponent implements OnInit{
         ))
         .pipe(tap(() => {
           this.commentForm.reset();
-          alert('Comentário adicionado com sucesso');
+          this.alertService.success("Comment successfully added");
         }));
   }
 }
