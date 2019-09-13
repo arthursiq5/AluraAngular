@@ -9,3 +9,7 @@
   left: -90%;
   transition: left 0.3s ease-out;
 }
+
+.active-menu .menu-bar{
+  left: 0%
+}
