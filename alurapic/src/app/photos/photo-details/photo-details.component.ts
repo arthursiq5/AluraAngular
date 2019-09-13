@@ -25,6 +25,7 @@ export class PhotoDetailsComponent implements OnInit{
   ngOnInit(): void {
     this.photoId = this.route.snapshot.params.photoId;
     this.photo$ = this.photoService.findById(this.photoId);
+
     this.photo$
         .subscribe(() => {},
           err => {
@@ -58,6 +59,6 @@ export class PhotoDetailsComponent implements OnInit{
           }else{
             this.alertService.warning("Error while trying to like photo");
           }
-        })
+        });
   }
 }

@@ -35,6 +35,7 @@ export class PhotoFormComponent implements OnInit {
   upload():void{
     const description = this.photoForm.get('description').value;
     const allowComments = this.photoForm.get('allowComments').value;
+
     this.photoService
         .upload(description, allowComments, this.file)
         .subscribe(
@@ -52,6 +53,7 @@ export class PhotoFormComponent implements OnInit {
   handleFile(file:File){
     this.file = file;
     const reader = new FileReader();
+
     reader.onload = (event: Event | any) => this.preview = event.target.result;
     reader.readAsDataURL(file);
   }

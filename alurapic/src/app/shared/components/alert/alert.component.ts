@@ -33,12 +33,16 @@ export class AlertComponent{
     if(!alert) return '';
 
     switch(alert.alertType){
+
       case AlertType.DANGER:
         return 'alert alert-danger';
+
       case AlertType.INFO:
         return 'alert alert-info';
+
       case AlertType.SUCCESS:
         return 'alert alert-success';
+
       case AlertType.WARNING:
         return 'alert alert-warning';
     }

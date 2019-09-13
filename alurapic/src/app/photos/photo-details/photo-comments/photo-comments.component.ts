@@ -34,14 +34,12 @@ export class PhotoCommentsComponent implements OnInit{
   save(): void{
     const comment: string = this.commentForm.get('comment').value as string;
 
-    if(!comment.trim()) // impede a inserção de comentários vazios
-      return;
+    if(!comment.trim()) return; // impede a inserção de comentários vazios
 
     this.comments$ = this.photoService
         .addComment(this.photoId, comment)
-        .pipe(switchMap(() =>
-          this.photoService.getComments(this.photoId)
-        ))
+        .pipe(
+          switchMap(() => this.photoService.getComments(this.photoId)))
         .pipe(tap(() => {
           this.commentForm.reset();
           this.alertService.success("Comment successfully added");

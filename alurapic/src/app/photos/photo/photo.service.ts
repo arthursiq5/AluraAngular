@@ -14,20 +14,23 @@ export class PhotoService{
 
   listFromUser(userName:string):Observable<Photo[]>{
     return this.http.get<Photo[]>
-          (API+"/"+userName+"/photos");
+            (API+"/"+userName+"/photos");
   }
 
   listFromUserPaginated(userName:string, page:number):Observable<Photo[]>{
     const params =  new HttpParams().append('page', page.toString())
+
     return this.http.get<Photo[]>
           (API+"/"+userName+"/photos", { params });
   }
 
   upload(description:string, allowComments: boolean, file: File){
     const formData = new FormData();
+
     formData.append('description', description);
     formData.append('allowComments', (allowComments ? 'true' : 'false'))
     formData.append('imageFile', file)
+
     return this.http.post(API + '/photos/upload', formData);
   }
 
@@ -55,8 +58,13 @@ export class PhotoService{
 
   like(photoId: number){
     return this.http
-      .post(API + '/photos/' + photoId + '/like', {}, { observe: 'response' })
+      .post(
+        API + '/photos/' + photoId + '/like', {}, { observe: 'response' })
       .pipe(map(res => true))
-      .pipe(catchError(err => err.status == '304' ? of(false): throwError(err)));
+      .pipe(
+        catchError(
+          err => err.status == '304' ? of(false): throwError(err)
+        )
+      );
   }
 }

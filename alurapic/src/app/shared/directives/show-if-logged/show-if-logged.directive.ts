@@ -14,6 +14,10 @@ export class ShowIfLoggedDirective implements OnInit{
 
   ngOnInit(): void {
     !this.userService.isLogged() &&
-      this.renderer.setElementStyle(this.element.nativeElement, 'display', 'none')
+      this.renderer.setElementStyle(
+        this.element.nativeElement, 
+        'display',
+        'none'
+      );
   }
 }
