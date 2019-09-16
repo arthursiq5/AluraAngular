@@ -40,13 +40,9 @@ export class SignInComponent implements OnInit{
     this.authService
         .authenticate(userName, password)
         .subscribe(
-          () => {
-            if(this.fromUrl){
-              this.router.navigateByUrl(this.fromUrl);
-            }else{
-              this.router.navigate(['user', userName]);
-            }
-          },
+          () => this.fromUrl
+                  ? this.router.navigateByUrl(this.fromUrl)
+                  : this.router.navigate(['user', userName]),
           err => {
             console.log(err);
             alert('Invalid username or password');
