@@ -65,13 +65,15 @@ export class SignUpComponent implements OnInit{
   }
 
   signup(){
-    const newUser: NewUser = this.signupForm.getRawValue() as NewUser;
+    if(this.signupForm.valid && !this.signupForm.pending){
+      const newUser: NewUser = this.signupForm.getRawValue() as NewUser;
 
-    this.signupService
-        .signup(newUser)
-        .subscribe(
-          () => this.router.navigate(['']),
-          err => console.log(err)
-        );
+      this.signupService
+          .signup(newUser)
+          .subscribe(
+            () => this.router.navigate(['']),
+            err => console.log(err)
+          );
+    }
   }
 }
