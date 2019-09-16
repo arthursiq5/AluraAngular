@@ -8,6 +8,7 @@ import { FooterComponent } from "./footer/footer.component";
 import { AlertModule } from "../shared/components/alert/alert.module";
 import { LoadingModule } from "../shared/components/loading/loading.module";
 import { MenuModule } from "../shared/components/menu/menu.module";
+import { ShowIfLoggedModule } from "../shared/directives/show-if-logged/show-if-logged.module";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MenuModule } from "../shared/components/menu/menu.module";
     RouterModule,
     AlertModule,
     LoadingModule,
-    MenuModule
+    MenuModule,
+    ShowIfLoggedModule
   ],
   exports: [
     HeaderComponent,
