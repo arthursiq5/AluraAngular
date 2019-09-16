@@ -4,6 +4,7 @@ import * as StackTrace from 'stacktrace-js';
 import { UserService } from "../../core/user/user.service";
 import { ServerLogService } from "./server-log.service";
 import { Router } from "@angular/router";
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class GlobalErrorHandler implements ErrorHandler {
@@ -27,7 +28,8 @@ export class GlobalErrorHandler implements ErrorHandler {
                       ? error.message
                       : error.toString();
 
-    router.navigate(['/error']);
+    if(environment.production)
+      router.navigate(['/error']);
 
     StackTrace
       .fromError(error)
