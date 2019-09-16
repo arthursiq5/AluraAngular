@@ -11,6 +11,6 @@ export class ServerLogService{
   constructor(private http:HttpClient){}
 
   log(serverLog: ServerLog){
-    this.http.post(API + '/infra/log', serverLog);
+    return this.http.post(API + '/infra/log', serverLog);
   }
 }
