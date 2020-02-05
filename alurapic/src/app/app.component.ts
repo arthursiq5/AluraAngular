@@ -10,6 +10,10 @@ import { filter, map, switchMap } from 'rxjs/operators';
 })
 export class AppComponent implements OnInit{
 
+  get route(){
+    return this.activatedRoute.snapshot.data.title
+  }
+
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
